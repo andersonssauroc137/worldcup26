@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}World Cup Games 2026{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div>
+        <span class="tag">FEAST GAMES apresenta</span>
+        <h1>World Cup Games 2026</h1>
+        <p>Mini games hiper casuais inspirados na Copa do Mundo, países, culturas e futebol.</p>
+
+        <div class="hero-actions">
+            <a href="{% url 'games:game_list' %}" class="btn">Ver Games</a>
+            <a href="{% url 'rankings:global_ranking' %}" class="btn secondary">Ranking Global</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Jogos em Destaque</h2>
+
+    <div class="cards">
+        {% for game in featured_games %}
+            <a href="{% url 'games:game_detail' game.slug %}" class="card">
+                <span>{{ game.country.flag }}</span>
+                <h3>{{ game.title }}</h3>
+                <p>{{ game.short_description }}</p>
+            </a>
+        {% empty %}
+            <p>Nenhum game publicado ainda.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <h2>Top Ranking</h2>
+
+    <div class="ranking-box">
+        {% for score in top_scores %}
+            <div class="ranking-row">
+                <span>{{ forloop.counter }}º</span>
+                <strong>{{ score.player.nickname }}</strong>
+                <span>{{ score.best_score }}</span>
+            </div>
+        {% empty %}
+            <p>Ranking aguardando os primeiros jogadores.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

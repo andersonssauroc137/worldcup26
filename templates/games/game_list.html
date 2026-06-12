@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Games | World Cup Games 2026{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <h1>Catálogo de Games</h1>
+    <p>Escolha um jogo, bata recordes e desafie seus amigos.</p>
+</section>
+
+<section class="section">
+    <div class="cards">
+        {% for game in games %}
+            <a href="{% url 'games:game_detail' game.slug %}" class="card">
+                <span>{{ game.country.flag }}</span>
+                <h3>{{ game.title }}</h3>
+                <p>{{ game.short_description }}</p>
+                <small>{{ game.get_platform_display }}</small>
+            </a>
+        {% empty %}
+            <p>Nenhum game publicado ainda.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

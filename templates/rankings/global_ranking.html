@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Ranking Global | World Cup Games 2026{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <h1>Ranking Global</h1>
+    <p>Os maiores jogadores somando todos os games.</p>
+</section>
+
+<section class="section">
+    <div class="ranking-box">
+        {% for item in ranking %}
+            <div class="ranking-row">
+                <span>{{ forloop.counter }}º</span>
+                <strong>{{ item.player__nickname }}</strong>
+                <span>{{ item.total_score }}</span>
+            </div>
+        {% empty %}
+            <p>Ranking ainda vazio.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

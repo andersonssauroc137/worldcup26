@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Ranking {{ game.title }} | World Cup Games 2026{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <h1>Ranking {{ game.title }}</h1>
+    <p>Os melhores jogadores deste game.</p>
+</section>
+
+<section class="section">
+    <div class="ranking-box">
+        {% for score in ranking %}
+            <div class="ranking-row">
+                <span>{{ forloop.counter }}º</span>
+                <strong>{{ score.player.nickname }}</strong>
+                <span>{{ score.best_score }}</span>
+            </div>
+        {% empty %}
+            <p>Ranking ainda vazio.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

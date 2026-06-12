@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ game.title }} | World Cup Games 2026{% endblock %}
+
+{% block content %}
+
+<section class="game-hero">
+    <span>{{ game.country.flag }}</span>
+    <h1>{{ game.title }}</h1>
+    <p>{{ game.short_description }}</p>
+</section>
+
+<section class="game-layout">
+
+    <aside class="ranking-panel">
+        <h2>Ranking</h2>
+
+        {% for score in ranking %}
+            <div class="ranking-row">
+                <span>{{ forloop.counter }}º</span>
+                <strong>{{ score.player.nickname }}</strong>
+                <span>{{ score.best_score }}</span>
+            </div>
+        {% empty %}
+            <p>Seja o primeiro no ranking.</p>
+        {% endfor %}
+    </aside>
+
+    <section class="game-area">
+        <h2>Área do Game</h2>
+        <div class="game-placeholder">
+            <p>Game será carregado aqui.</p>
+        </div>
+    </section>
+
+</section>
+
+<section class="section">
+    <h2>Sobre {{ game.country.name }}</h2>
+    <p>{{ game.country.description }}</p>
+</section>
+
+<section class="section">
+    <h2>Outros Games</h2>
+
+    <div class="cards">
+        {% for other in other_games %}
+            <a href="{% url 'games:game_detail' other.slug %}" class="card">
+                <span>{{ other.country.flag }}</span>
+                <h3>{{ other.title }}</h3>
+                <p>{{ other.short_description }}</p>
+            </a>
+        {% empty %}
+            <p>Novos games em breve.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
