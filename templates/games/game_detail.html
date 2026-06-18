@@ -27,11 +27,26 @@
     </aside>
 
     <section class="game-area">
-        <h2>Área do Game</h2>
-        <div class="game-placeholder">
-            <p>Game será carregado aqui.</p>
+    <h2>Área do Game</h2>
+
+    <div class="game-placeholder" data-game-slug="{{ game.slug }}">
+        <h3>{{ game.title }}</h3>
+
+        <p class="score-label">Pontuação atual</p>
+        <strong id="current-score">0</strong>
+
+        <div class="game-test-actions">
+            <button id="add-score-btn" class="btn" type="button">+100 pontos</button>
+            <button id="finish-game-btn" class="btn secondary" type="button">Finalizar partida</button>
         </div>
-    </section>
+
+        <div id="score-result" class="score-result"></div>
+
+        <button id="share-score-btn" class="btn share-btn" type="button" style="display:none;">
+            Desafiar amigos
+        </button>
+    </div>
+</section>
 
 </section>
 
@@ -56,4 +71,10 @@
     </div>
 </section>
 
+<script>
+    window.WCG_GAME_SLUG = "{{ game.slug }}";
+    window.WCG_GAME_TITLE = "{{ game.title }}";
+</script>
+
+<script src="/static/js/game-test.js"></script>
 {% endblock %}
