@@ -29,23 +29,28 @@
     <section class="game-area">
     <h2>Área do Game</h2>
 
-    <div class="game-placeholder" data-game-slug="{{ game.slug }}">
-        <h3>{{ game.title }}</h3>
+    <div class="game-frame-wrapper">
 
-        <p class="score-label">Pontuação atual</p>
-        <strong id="current-score">0</strong>
+    <iframe
+        src="/static/games/{{ game.slug }}/index.html"
+        class="game-frame"
+        title="{{ game.title }}"
+    ></iframe>
 
-        <div class="game-test-actions">
-            <button id="add-score-btn" class="btn" type="button">+100 pontos</button>
-            <button id="finish-game-btn" class="btn secondary" type="button">Finalizar partida</button>
-        </div>
+</div>
 
-        <div id="score-result" class="score-result"></div>
+<div class="game-score-panel">
 
-        <button id="share-score-btn" class="btn share-btn" type="button" style="display:none;">
-            Desafiar amigos
-        </button>
-    </div>
+    <p class="score-label">Pontuação recebida</p>
+    <strong id="current-score">0</strong>
+
+    <div id="score-result" class="score-result"></div>
+
+    <button id="share-score-btn" class="btn share-btn" type="button" style="display:none;">
+        Desafiar amigos
+    </button>
+
+</div>
 </section>
 
 </section>
@@ -76,5 +81,5 @@
     window.WCG_GAME_TITLE = "{{ game.title }}";
 </script>
 
-<script src="/static/js/game-test.js"></script>
+<script src="/static/js/game-bridge.js"></script>
 {% endblock %}
