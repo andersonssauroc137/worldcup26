@@ -3,15 +3,22 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+
     <title>{% block title %}World Cup Games 2026{% endblock %}</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="World Cup Games 2026: mini games hiper casuais inspirados na Copa do Mundo, países, culturas e futebol.">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
 <header class="site-header">
-    <a href="{% url 'core:home' %}" class="logo">FEAST GAMES</a>
+    <a href="{% url 'core:home' %}" class="logo">
+        <span class="logo-icon">🏆</span>
+        <span>FEAST GAMES</span>
+    </a>
 
     <nav>
         <a href="{% url 'core:home' %}">Home</a>
@@ -25,8 +32,15 @@
 </main>
 
 <footer class="site-footer">
-    <strong>Feast Games</strong>
-    <p>Mini games, rankings e experiências digitais para eventos, marcas e comunidades.</p>
+    <div>
+        <strong>🏆 FEAST GAMES</strong>
+        <p>Mini games, rankings e experiências digitais para eventos, marcas e comunidades.</p>
+    </div>
+
+    <div>
+        <strong>WORLD CUP GAMES 2026</strong>
+        <p>🌎 Cultura · ⚽ Futebol · 🎮 Games · 🏆 Ranking</p>
+    </div>
 </footer>
 
 </body>

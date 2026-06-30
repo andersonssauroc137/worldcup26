@@ -6,19 +6,58 @@
 
 <section class="hero">
     <div>
-        <span class="tag">FEAST GAMES apresenta</span>
-        <h1>World Cup Games 2026</h1>
-        <p>Mini games hiper casuais inspirados na Copa do Mundo, países, culturas e futebol.</p>
+        <p>
+            Mini games hiper casuais inspirados na Copa do Mundo,
+            países, culturas e futebol.
+        </p>
 
         <div class="hero-actions">
-            <a href="{% url 'games:game_list' %}" class="btn">Ver Games</a>
-            <a href="{% url 'rankings:global_ranking' %}" class="btn secondary">Ranking Global</a>
+            <a href="{% url 'games:game_list' %}" class="btn">🎮 Ver Games</a>
+            <a href="{% url 'rankings:global_ranking' %}" class="btn secondary">🏆 Ranking Global</a>
         </div>
     </div>
 </section>
 
+<section class="stats-section">
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">🎮</div>
+            <div class="stat-content">
+                <span class="stat-number">{{ featured_games|length }}</span>
+                <span class="stat-label">Games Disponíveis</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-content">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Players Ativos</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-content">
+                <span class="stat-number">0</span>
+                <span class="stat-label">Partidas Jogadas</span>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🌎</div>
+            <div class="stat-content">
+                <span class="stat-number">48</span>
+                <span class="stat-label">Países Participantes</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <section class="section">
-    <h2>Jogos em Destaque</h2>
+    <h2>🌎 Explore os Países Sede</h2>
 
     <div class="cards">
         {% for game in featured_games %}
@@ -34,7 +73,51 @@
 </section>
 
 <section class="section">
-    <h2>Top Ranking</h2>
+    <h2>🏆 Explore a Copa</h2>
+
+    <div class="phase-grid">
+
+        <a href="#" class="phase-card">
+            <span>🌎</span>
+            <h3>Todos os 48</h3>
+            <p>Games inspirados em todas as seleções participantes.</p>
+        </a>
+
+        <a href="#" class="phase-card">
+            <span>🔥</span>
+            <h3>16 Avos</h3>
+            <p>Jogos das seleções que avançarem para o mata-mata.</p>
+        </a>
+
+        <a href="#" class="phase-card">
+            <span>⚔️</span>
+            <h3>Oitavas</h3>
+            <p>Novos desafios para os confrontos decisivos.</p>
+        </a>
+
+        <a href="#" class="phase-card">
+            <span>💥</span>
+            <h3>Quartas</h3>
+            <p>Games especiais dos países que seguirem vivos.</p>
+        </a>
+
+        <a href="#" class="phase-card">
+            <span>🚀</span>
+            <h3>Semi</h3>
+            <p>Experiências rápidas para a reta final da competição.</p>
+        </a>
+
+        <a href="#" class="phase-card final-card">
+            <span>🏆</span>
+            <h3>Final</h3>
+            <p>O grande game comemorativo da decisão mundial.</p>
+        </a>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>🏆 Hall da Fama</h2>
 
     <div class="ranking-box">
         {% for score in top_scores %}
